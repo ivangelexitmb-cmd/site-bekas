@@ -3,74 +3,226 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Моя первая страница</title>
-    
-    <!-- Подключаем наши стили -->
+    <title>Прикормочные кораблики | Производство</title>
     <link rel="stylesheet" href="style.css">
-    
-    <!-- Подключаем шрифты из Google (делает сайт красивее) -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz@14..32&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- ШАПКА (навигация) -->
+    <!-- ============ ШАПКА ============ -->
     <header>
-        <nav>
-            <div class="logo">Мой сайт</div>
-            <ul>
-                <li><a href="#about">Обо мне</a></li>
-                <li><a href="#services">Услуги</a></li>
-                <li><a href="#contacts">Контакты</a></li>
-            </ul>
+        <div class="header-top">
+            <div class="logo">🚤 КорабликPRO</div>
+            <!-- ЯРКАЯ КНОПКА ЗАКАЗАТЬ -->
+            <a href="#" class="order-btn-header" onclick="openTab('order')">🔥 ЗАКАЗАТЬ</a>
+        </div>
+        
+        <!-- Лента с фотографиями (автолистание) -->
+        <div class="photo-slider">
+            <div class="slider-track" id="sliderTrack">
+                <!-- Вставьте СВОИ фото вместо этих ссылок -->
+                <img src="https://via.placeholder.com/1200x400/2c3e50/ffffff?text=Кораблик+1" alt="Кораблик 1">
+                <img src="https://via.placeholder.com/1200x400/34495e/ffffff?text=Кораблик+2" alt="Кораблик 2">
+                <img src="https://via.placeholder.com/1200x400/2c3e50/ffffff?text=Кораблик+3" alt="Кораблик 3">
+                <img src="https://via.placeholder.com/1200x400/34495e/ffffff?text=Кораблик+4" alt="Кораблик 4">
+                <img src="https://via.placeholder.com/1200x400/2c3e50/ffffff?text=Кораблик+5" alt="Кораблик 5">
+                <img src="https://via.placeholder.com/1200x400/34495e/ffffff?text=Кораблик+6" alt="Кораблик 6">
+                <img src="https://via.placeholder.com/1200x400/2c3e50/ffffff?text=Кораблик+7" alt="Кораблик 7">
+                <img src="https://via.placeholder.com/1200x400/34495e/ffffff?text=Кораблик+8" alt="Кораблик 8">
+                <img src="https://via.placeholder.com/1200x400/2c3e50/ffffff?text=Кораблик+9" alt="Кораблик 9">
+                <img src="https://via.placeholder.com/1200x400/34495e/ffffff?text=Кораблик+10" alt="Кораблик 10">
+            </div>
+        </div>
+
+        <!-- НАВИГАЦИЯ (вкладки) -->
+        <nav class="main-nav">
+            <button class="tab-btn active" onclick="openTab('home')">📺 Главная</button>
+            <button class="tab-btn" onclick="openTab('order')">🛒 Заказать</button>
+            <button class="tab-btn" onclick="openTab('contacts')">📞 Контакты</button>
         </nav>
     </header>
 
-    <!-- ГЛАВНЫЙ БЛОК (Hero) -->
-    <section class="hero">
-        <h1>Привет, я создаю сайты</h1>
-        <p>Это мой первый проект, написанный вручную</p>
-        <a href="#contacts" class="btn">Связаться</a>
-    </section>
+    <!-- ============ ОСНОВНОЙ КОНТЕНТ ============ -->
+    <main>
 
-    <!-- БЛОК "Обо мне" -->
-    <section id="about" class="about">
-        <h2>Обо мне</h2>
-        <div class="about-content">
-            <p>Меня зовут [Ваше имя]. Я начинающий веб-разработчик и учусь создавать сайты с нуля. Мне нравится чистый код и красивые интерфейсы.</p>
-        </div>
-    </section>
-
-    <!-- БЛОК "Услуги" -->
-    <section id="services" class="services">
-        <h2>Что я умею</h2>
-        <div class="services-grid">
-            <div class="service-card">
-                <h3>Вёрстка</h3>
-                <p>Создаю структуру сайтов на HTML и CSS</p>
+        <!-- ===== ВКЛАДКА 1: ГЛАВНАЯ ===== -->
+        <section id="tab-home" class="tab-content active">
+            <!-- Видео блок -->
+            <div class="video-block">
+                <h2>📹 Свежий видеоролик</h2>
+                <div class="video-container">
+                    <!-- ЗАМЕНИТЕ src НА СВОЮ ССЫЛКУ НА ВИДЕО -->
+                    <video controls poster="https://via.placeholder.com/800x450/2c3e50/ffffff?text=Превью+видео">
+                        <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+                        Ваш браузер не поддерживает видео
+                    </video>
+                </div>
             </div>
-            <div class="service-card">
-                <h3>Адаптация</h3>
-                <p>Делаю так, чтобы сайт красиво смотрелся на телефоне</p>
-            </div>
-            <div class="service-card">
-                <h3>Интерактив</h3>
-                <p>Добавляю анимации и кнопки с помощью JavaScript</p>
-            </div>
-        </div>
-    </section>
 
-    <!-- БЛОК "Контакты" -->
-    <section id="contacts" class="contacts">
-        <h2>Свяжитесь со мной</h2>
-        <p>Email: example@mail.com</p>
-        <button id="showAlert">Нажми на меня</button>
-    </section>
+            <!-- Лента со свежими фото -->
+            <div class="photo-feed">
+                <h2>📸 Свежие фото</h2>
+                <div class="feed-grid">
+                    <!-- ЗАМЕНИТЕ src НА СВОИ ФОТО -->
+                    <img src="https://via.placeholder.com/300x300/2c3e50/ffffff?text=Фото+1" alt="Фото 1">
+                    <img src="https://via.placeholder.com/300x300/34495e/ffffff?text=Фото+2" alt="Фото 2">
+                    <img src="https://via.placeholder.com/300x300/2c3e50/ffffff?text=Фото+3" alt="Фото 3">
+                    <img src="https://via.placeholder.com/300x300/34495e/ffffff?text=Фото+4" alt="Фото 4">
+                    <img src="https://via.placeholder.com/300x300/2c3e50/ffffff?text=Фото+5" alt="Фото 5">
+                    <img src="https://via.placeholder.com/300x300/34495e/ffffff?text=Фото+6" alt="Фото 6">
+                </div>
+            </div>
+        </section>
 
-    <!-- ПОДВАЛ -->
+        <!-- ===== ВКЛАДКА 2: ЗАКАЗ И КОМПЛЕКТАЦИЯ ===== -->
+        <section id="tab-order" class="tab-content">
+            <h2>🛠 Соберите свою комплектацию</h2>
+            <p class="order-subtitle">Выберите опции галочками — цена обновится автоматически</p>
+
+            <div class="configurator">
+                <!-- ОПЦИЯ 1 -->
+                <div class="option-item">
+                    <label>
+                        <input type="checkbox" class="option-check" data-price="1500" onchange="updateTotal()">
+                        <span class="option-name">Корпус усиленный (стеклопластик)</span>
+                        <span class="option-price">+1 500 ₽</span>
+                    </label>
+                </div>
+
+                <!-- ОПЦИЯ 2 -->
+                <div class="option-item">
+                    <label>
+                        <input type="checkbox" class="option-check" data-price="2000" onchange="updateTotal()">
+                        <span class="option-name">Электромотор 12V 30A</span>
+                        <span class="option-price">+2 000 ₽</span>
+                    </label>
+                </div>
+
+                <!-- ОПЦИЯ 3 -->
+                <div class="option-item">
+                    <label>
+                        <input type="checkbox" class="option-check" data-price="1200" onchange="updateTotal()">
+                        <span class="option-name">Аккумулятор 40Ач (гелевый)</span>
+                        <span class="option-price">+1 200 ₽</span>
+                    </label>
+                </div>
+
+                <!-- ОПЦИЯ 4 -->
+                <div class="option-item">
+                    <label>
+                        <input type="checkbox" class="option-check" data-price="2500" onchange="updateTotal()">
+                        <span class="option-name">Пульт управления с экраном</span>
+                        <span class="option-price">+2 500 ₽</span>
+                    </label>
+                </div>
+
+                <!-- ОПЦИЯ 5 -->
+                <div class="option-item">
+                    <label>
+                        <input type="checkbox" class="option-check" data-price="800" onchange="updateTotal()">
+                        <span class="option-name">Кормушка с бункером 2л</span>
+                        <span class="option-price">+800 ₽</span>
+                    </label>
+                </div>
+
+                <!-- ОПЦИЯ 6 -->
+                <div class="option-item">
+                    <label>
+                        <input type="checkbox" class="option-check" data-price="3500" onchange="updateTotal()">
+                        <span class="option-name">Автопилот по GPS</span>
+                        <span class="option-price">+3 500 ₽</span>
+                    </label>
+                </div>
+
+                <!-- ОПЦИЯ 7 -->
+                <div class="option-item">
+                    <label>
+                        <input type="checkbox" class="option-check" data-price="600" onchange="updateTotal()">
+                        <span class="option-name">Подсветка (LED, 4 цвета)</span>
+                        <span class="option-price">+600 ₽</span>
+                    </label>
+                </div>
+
+                <!-- ОПЦИЯ 8 -->
+                <div class="option-item">
+                    <label>
+                        <input type="checkbox" class="option-check" data-price="400" onchange="updateTotal()">
+                        <span class="option-name">Чехол для транспортировки</span>
+                        <span class="option-price">+400 ₽</span>
+                    </label>
+                </div>
+
+                <!-- ИТОГОВАЯ СУММА -->
+                <div class="total-block">
+                    <span class="total-label">💰 ИТОГОВАЯ ЦЕНА:</span>
+                    <span class="total-price" id="totalPrice">0 ₽</span>
+                </div>
+
+                <button class="submit-order-btn" onclick="submitOrder()">📩 Отправить заявку</button>
+            </div>
+        </section>
+
+        <!-- ===== ВКЛАДКА 3: КОНТАКТЫ ===== -->
+        <section id="tab-contacts" class="tab-content">
+            <h2>📞 Контакты</h2>
+            
+            <div class="contacts-grid">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <span class="contact-icon">📱</span>
+                        <div>
+                            <strong>Телефон (звонки, WhatsApp):</strong>
+                            <a href="tel:+79158706979">+7 (915) 870-69-79</a>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <span class="contact-icon">✈️</span>
+                        <div>
+                            <strong>Telegram:</strong>
+                            <a href="https://t.me/+79997706979">@+79997706979</a>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <span class="contact-icon">📧</span>
+                        <div>
+                            <strong>Email:</strong>
+                            <a href="mailto:ivan.gelexi.tmb@gmail.com">ivan.gelexi.tmb@gmail.com</a>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <span class="contact-icon">📍</span>
+                        <div>
+                            <strong>Адрес производства:</strong>
+                            <p>Тамбовская область, г. Тамбов</p>
+                            <a href="https://yandex.ru/maps/213/tambov/" target="_blank" class="map-link">
+                                🗺 Открыть на Яндекс.Картах
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- КАРТА -->
+                <div class="map-container">
+                    <iframe src="https://yandex.ru/map-widget/v1/?ll=41.4358%2C52.7313&z=12" 
+                            width="100%" 
+                            height="400" 
+                            frameborder="0"
+                            allowfullscreen>
+                    </iframe>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ============ ПОДВАЛ ============ -->
     <footer>
-        <p>© 2026 Мой первый сайт. Сделано с ❤️</p>
+        <p>© 2026 КорабликPRO | Производство прикормочных корабликов</p>
+        <p>Сделано с ❤️ для рыбаков</p>
     </footer>
 
-    <!-- Подключаем JavaScript -->
     <script src="script.js"></script>
 </body>
 </html>

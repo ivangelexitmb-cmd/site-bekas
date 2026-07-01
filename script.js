@@ -94,3 +94,99 @@ if (sliderTrack) {
         this.style.animationPlayState = 'running';
     });
 }
+// ===== 6. СЧЁТЧИКИ ПОСЕЩЕНИЙ =====
+function updateCounters() {
+    // Получаем текущие данные из localStorage
+    let total = parseInt(localStorage.getItem('siteTotalVisits')) || 0;
+    let month = parseInt(localStorage.getItem('siteMonthVisits')) || 0;
+    let lastVisitDate = localStorage.getItem('siteLastVisitDate');
+
+    // Текущая дата
+    const now = new Date();
+    const currentMonth = now.getMonth();
+    const currentYear = now.getFullYear();
+    const today = `${currentYear}-${currentMonth}-${now.getDate()}`;
+
+    // Проверяем, был ли визит сегодня
+    if (lastVisitDate !== today) {
+        // Новый визит
+        total += 1;
+        month += 1;
+
+        // Обновляем данные
+        localStorage.setItem('siteTotalVisits', total.toString());
+        localStorage.setItem('siteMonthVisits', month.toString());
+        localStorage.setItem('siteLastVisitDate', today);
+
+        // Сброс месячного счётчика, если месяц изменился
+        const lastMonth = localStorage.getItem('siteLastMonth');
+        if (lastMonth !== currentMonth.toString()) {
+            localStorage.setItem('siteMonthVisits', '0');
+            localStorage.setItem('siteLastMonth', currentMonth.toString());
+        }
+    }
+
+    // Отображаем счётчики на странице
+    const totalEl = document.getElementById('totalVisits');
+    const monthEl = document.getElementById('monthVisits');
+    const onlineEl = document.getElementById('onlineNow');
+
+    if (totalEl) totalEl.textContent = total.toLocaleString('ru-RU');
+    if (monthEl) monthEl.textContent = month.toLocaleString('ru-RU');
+
+    // Счётчик онлайн (случайное число для демонстрации)
+    if (onlineEl) {
+        const online = Math.floor(Math.random() * 8) + 1;
+        onlineEl.textContent = online;
+    }
+}
+
+// Запускаем счётчики при загрузке
+document.addEventListener('DOMContentLoaded', updateCounters);
+
+// ===== 7. МОДАЛЬНОЕ ОКНО ДЛЯ СЕРТИФИКАТОВ =====
+function openCertModal(element) {
+    const img = element.querySelector('img');
+    const modal = document.getElementById('certModal');
+    const modalImg = document.getElementById('certModalImg');
+
+    if (modal && modalImg && img) {
+        modalImg.src = img.src;
+        modal.classList.add('open');
+        document.body.style.overflow = 'hidden'; // блокируем скролл страницы
+    }
+}
+
+function closeCertModal() {
+    const modal = document.getElementById('certModal');
+    if (modal) {
+        modal.classList.remove('open');
+        document.body.style.overflow = 'auto'; // восстанавливаем скролл
+    }
+}
+
+// Закрытие модального окна по клику вне картинки
+document.addEventListener('click', function(e) {
+    const modal = document.getElementById('certModal');
+    if (modal && modal.classList.contains('open')) {
+        if (e.target === modal) {
+            closeCertModal();
+        }
+    }
+});
+
+// Закрытие по клавише ESC
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+        closeCertModal();
+    }
+});
+
+// ===== 8. ОБНОВЛЕНИЕ СЧЁТЧИКА ОНЛАЙН (каждые 30 секунд) =====
+setInterval(function() {
+    const onlineEl = document.getElementById('onlineNow');
+    if (onlineEl) {
+        const online = Math.floor(Math.random() * 8) + 1;
+        onlineEl.textContent = online;
+    }
+}, 30000); // обновляем раз в 30 секунд

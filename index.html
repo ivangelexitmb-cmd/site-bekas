@@ -3,450 +3,283 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Прикормочные кораблики | Производство</title>
+    <title>Прикормочные кораблики Бекас — производство РФ</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz@14..32&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- ============ ШАПКА ============ -->
-    <header>
-        <div class="header-top">
-            <div class="logo">🚤 КорабликPRO</div>
-            <!-- ЯРКАЯ КНОПКА ЗАКАЗАТЬ -->
-            <a href="#" class="order-btn-header" onclick="openTab('order')">🔥 ЗАКАЗАТЬ</a>
+
+<!-- ============ ШАПКА ============ -->
+<header class="header">
+    <div class="container header-inner">
+        <div class="logo">
+            <span>Бекас</span>
+            <small>прикормочные кораблики</small>
         </div>
-        
-        <!-- Лента с фотографиями (автолистание) -->
-        <div class="photo-slider" id="photoSlider">
-            <div class="slider-track" id="sliderTrack">
-                <!-- ЗАМЕНИТЕ ЭТИ ССЫЛКИ НА СВОИ ФОТО -->
-                <img src="https://via.placeholder.com/1200x150/2c3e50/ffffff?text=Кораблик+1" alt="Кораблик 1">
-                <img src="https://via.placeholder.com/1200x150/34495e/ffffff?text=Кораблик+2" alt="Кораблик 2">
-                <img src="https://via.placeholder.com/1200x150/2c3e50/ffffff?text=Кораблик+3" alt="Кораблик 3">
-                <img src="https://via.placeholder.com/1200x150/34495e/ffffff?text=Кораблик+4" alt="Кораблик 4">
-                <img src="https://via.placeholder.com/1200x150/2c3e50/ffffff?text=Кораблик+5" alt="Кораблик 5">
-                <img src="https://via.placeholder.com/1200x150/34495e/ffffff?text=Кораблик+6" alt="Кораблик 6">
-                <img src="https://via.placeholder.com/1200x150/2c3e50/ffffff?text=Кораблик+7" alt="Кораблик 7">
-                <img src="https://via.placeholder.com/1200x150/34495e/ffffff?text=Кораблик+8" alt="Кораблик 8">
-                <img src="https://via.placeholder.com/1200x150/2c3e50/ffffff?text=Кораблик+9" alt="Кораблик 9">
-                <img src="https://via.placeholder.com/1200x150/34495e/ffffff?text=Кораблик+10" alt="Кораблик 10">
+        <div class="header-phone">
+            <a href="tel:+79158706979">+7 (915) 870-69-79</a>
+        </div>
+        <a href="#form" class="btn">Заказать звонок</a>
+    </div>
+</header>
+
+<!-- ============ ГЛАВНЫЙ ЭКРАН ============ -->
+<section class="hero">
+    <div class="container">
+        <h1>Прикормочные кораблики <span>Бекас</span></h1>
+        <p>Российский производитель карповых корабликов. 3 популярные модели, 26 модификаций, 12 месяцев гарантии.</p>
+        <div class="hero-form" id="form">
+            <p class="form-title">Ответьте на 3 вопроса за 1 минуту</p>
+            <p class="form-sub">Мы подберём модель для вашего региона</p>
+            <button class="btn" onclick="submitForm()">Помочь подобрать кораблик</button>
+            <small>Нажимая на кнопку, вы даёте согласие на обработку данных</small>
+        </div>
+    </div>
+</section>
+
+<!-- ============ ПОЧЕМУ МЫ ============ -->
+<section class="section">
+    <div class="container">
+        <h2 class="section-title">Почему <span>Бекас</span>?</h2>
+        <div class="grid-3">
+            <div class="card">
+                <div class="card-icon">⚙️</div>
+                <h3>Сделано в России</h3>
+                <p>Производство в Краснодарском крае. Полный контроль качества на каждом этапе.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">🔧</div>
+                <h3>26 модификаций</h3>
+                <p>Под любые задачи: автопилот, эхолот, усиленный корпус, цветовые решения.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">🛡️</div>
+                <h3>Гарантия 12 месяцев</h3>
+                <p>Техническая поддержка и сервис даже после истечения гарантийного срока.</p>
             </div>
         </div>
+    </div>
+</section>
 
-        <!-- НАВИГАЦИЯ (вкладки) -->
-        <nav class="main-nav">
-            <button class="tab-btn active" onclick="openTab('home')">📺 Главная</button>
-            <button class="tab-btn" onclick="openTab('order')">🛒 Заказать</button>
-            <button class="tab-btn" onclick="openTab('contacts')">📞 Контакты</button>
-        </nav>
-    </header>
-
-    <!-- ============ ОСНОВНОЙ КОНТЕНТ ============ -->
-    <main>
-
-        <!-- ===== ВКЛАДКА 1: ГЛАВНАЯ ===== -->
-        <section id="tab-home" class="tab-content active">
-            <!-- Видео блок -->
-            <div class="video-block">
-                <h2>📹 Свежий видеоролик</h2>
-                <div class="video-container">
-                    <!-- ↓↓↓ ВСТАВЬТЕ СВОЁ ВИДЕО ↓↓↓ -->
-                    <video controls poster="images/prew.png">
-                        <source src="prikormochnyy_korablik_kupit_kachestvennyy_karpovyy_obzor.mp4" type="video/mp4">
-                        Ваш браузер не поддерживает видео
-                    </video>
-                    <!-- ↑↑↑ ВСТАВЬТЕ СВОЁ ВИДЕО ↑↑↑ -->
-                </div>
+<!-- ============ ИНТЕРАКТИВНАЯ СХЕМА ============ -->
+<section class="section scheme-section">
+    <div class="container">
+        <h2 class="section-title">Конструкция продумана <span>до мелочей</span></h2>
+        <div class="scheme-wrapper">
+            <div class="scheme-image">
+                <span class="scheme-badge">Модель SpeeD V5</span>
             </div>
-
-            <!-- Лента со свежими фото -->
-            <div class="photo-feed">
-                <h2>📸 Свежие фото</h2>
-                <div class="feed-grid">
-                    <!-- ЗАМЕНИТЕ ЭТИ ССЫЛКИ НА СВОИ ФОТО -->
-                    <img src="https://via.placeholder.com/300x300/2c3e50/ffffff?text=Фото+1" alt="Фото 1">
-                    <img src="https://via.placeholder.com/300x300/34495e/ffffff?text=Фото+2" alt="Фото 2">
-                    <img src="https://via.placeholder.com/300x300/2c3e50/ffffff?text=Фото+3" alt="Фото 3">
-                    <img src="https://via.placeholder.com/300x300/34495e/ffffff?text=Фото+4" alt="Фото 4">
-                    <img src="https://via.placeholder.com/300x300/2c3e50/ffffff?text=Фото+5" alt="Фото 5">
-                    <img src="https://via.placeholder.com/300x300/34495e/ffffff?text=Фото+6" alt="Фото 6">
-                </div>
+            <div class="scheme-features">
+                <ul>
+                    <li>Герметичный корпус (морской герметик)</li>
+                    <li>Килевое дно — устойчивость при волне до 1 м</li>
+                    <li>Ударопрочный ABS-пластик (3 мм)</li>
+                    <li>Усиленная фара с противотуманным режимом</li>
+                    <li>4 ярких габарита, индикаторы сброса</li>
+                    <li>Объёмный бункер 1–1.2 л</li>
+                    <li>Мощные сервоприводы (до 20 кг)</li>
+                    <li>Возможность установки эхолота и камеры</li>
+                </ul>
             </div>
+        </div>
+    </div>
+</section>
 
-            <!-- ===== БЛОК 3: ХАРАКТЕРИСТИКИ КОРАБЛИКОВ ===== -->
-            <section class="specs-block">
-                <h2>⚙️ Характеристики наших корабликов</h2>
-                <div class="specs-grid">
-                    <div class="spec-card">
-                        <div class="spec-icon">🚤</div>
-                        <h3>Корпус</h3>
-                        <ul>
-                            <li>Материал: стеклопластик / ударопрочный ABS</li>
-                            <li>Длина: 1200 мм</li>
-                            <li>Ширина: 450 мм</li>
-                            <li>Вес: 12 кг (без аккумулятора)</li>
-                            <li>Грузоподъёмность: до 8 кг</li>
-                        </ul>
-                    </div>
-
-                    <div class="spec-card">
-                        <div class="spec-icon">⚡</div>
-                        <h3>Двигатель и питание</h3>
-                        <ul>
-                            <li>Мотор: бесколлекторный 12V 30A</li>
-                            <li>Скорость: до 12 км/ч</li>
-                            <li>Аккумулятор: гелевый 40-60 Ач</li>
-                            <li>Время работы: до 8 часов</li>
-                            <li>Зарядка: встроенная (220В)</li>
-                        </ul>
-                    </div>
-
-                    <div class="spec-card">
-                        <div class="spec-icon">📡</div>
-                        <h3>Управление</h3>
-                        <ul>
-                            <li>Пульт: 2.4 ГГц, дальность до 800 м</li>
-                            <li>Автопилот (опция) с GPS</li>
-                            <li>Коррекция курса по компасу</li>
-                            <li>Световая индикация</li>
-                            <li>Защита от потери сигнала</li>
-                        </ul>
-                    </div>
-
-                    <div class="spec-card">
-                        <div class="spec-icon">🎯</div>
-                        <h3>Кормушка</h3>
-                        <ul>
-                            <li>Объём бункера: 1.5 / 2.0 / 2.5 л</li>
-                            <li>Тип: вибрационная / шнековая</li>
-                            <li>Управление: порционное</li>
-                            <li>Дальность выброса: до 50 м</li>
-                            <li>Регулировка скорости подачи</li>
-                        </ul>
-                    </div>
-
-                    <div class="spec-card">
-                        <div class="spec-icon">🔦</div>
-                        <h3>Дополнительно</h3>
-                        <ul>
-                            <li>LED-подсветка (4 режима)</li>
-                            <li>Эхолот (опция)</li>
-                            <li>Чехол для транспортировки</li>
-                            <li>Сервисная программа</li>
-                            <li>Гарантия: 24 месяца</li>
-                        </ul>
-                    </div>
-
-                    <div class="spec-card">
-                        <div class="spec-icon">🏆</div>
-                        <h3>Преимущества</h3>
-                        <ul>
-                            <li>Ручная сборка в Тамбове</li>
-                            <li>Водонепроницаемый корпус</li>
-                            <li>Термостойкая электроника</li>
-                            <li>Балансировка под любую погоду</li>
-                            <li>Индивидуальный заказ</li>
-                        </ul>
-                    </div>
-                </div>
-            </section>
-
-            <!-- ===== БЛОК 4: ОТЗЫВЫ ===== -->
-            <section class="reviews-block">
-                <h2>⭐ Отзывы наших клиентов</h2>
-                <div class="reviews-grid">
-                    <div class="review-card">
-                        <div class="review-header">
-                            <img src="https://i.pravatar.cc/100?img=1" alt="Аватар" class="review-avatar">
-                            <div>
-                                <div class="review-name">Алексей С.</div>
-                                <div class="review-stars">⭐⭐⭐⭐⭐</div>
-                            </div>
-                        </div>
-                        <p class="review-text">"Заказал кораблик с автопилотом. Приехал уже через 3 дня! Собрал, настроил — работает как часы. На рыбалке другого такого нет, все подплывают посмотреть. Рекомендую!"</p>
-                        <div class="review-date">📍 Москва | 15 июня 2026</div>
-                    </div>
-
-                    <div class="review-card">
-                        <div class="review-header">
-                            <img src="https://i.pravatar.cc/100?img=2" alt="Аватар" class="review-avatar">
-                            <div>
-                                <div class="review-name">Сергей К.</div>
-                                <div class="review-stars">⭐⭐⭐⭐⭐</div>
-                            </div>
-                        </div>
-                        <p class="review-text">"Брал себе и брату. Очень доволен качеством сборки. Корпус крепкий, мотор тянет отлично. Кормушка работает чётко, прикорм ложится точно в точку. Отличный аппарат!"</p>
-                        <div class="review-date">📍 Воронеж | 2 июля 2026</div>
-                    </div>
-
-                    <div class="review-card">
-                        <div class="review-header">
-                            <img src="https://i.pravatar.cc/100?img=3" alt="Аватар" class="review-avatar">
-                            <div>
-                                <div class="review-name">Дмитрий П.</div>
-                                <div class="review-stars">⭐⭐⭐⭐⭐</div>
-                            </div>
-                        </div>
-                        <p class="review-text">"Первый раз взял такой кораблик. Очень понравилась комплектация с эхолотом. Теперь знаю рельеф дна и где стоят рыбы. Рыбалка вышла на новый уровень. Спасибо!"</p>
-                        <div class="review-date">📍 Ростов-на-Дону | 20 июля 2026</div>
-                    </div>
-
-                    <div class="review-card">
-                        <div class="review-header">
-                            <img src="https://i.pravatar.cc/100?img=4" alt="Аватар" class="review-avatar">
-                            <div>
-                                <div class="review-name">Игорь М.</div>
-                                <div class="review-stars">⭐⭐⭐⭐⭐</div>
-                            </div>
-                        </div>
-                        <p class="review-text">"Отличный сервис и качество! Кораблик приехал полностью готовым. Всё работает, зарядки хватает на 2 рыбалки. Друзья уже тоже хотят такие же."</p>
-                        <div class="review-date">📍 Тамбов | 1 августа 2026</div>
-                    </div>
-
-                    <div class="review-card">
-                        <div class="review-header">
-                            <img src="https://i.pravatar.cc/100?img=5" alt="Аватар" class="review-avatar">
-                            <div>
-                                <div class="review-name">Олег В.</div>
-                                <div class="review-stars">⭐⭐⭐⭐⭐</div>
-                            </div>
-                        </div>
-                        <p class="review-text">"Заказывал уже второй кораблик! Первый уже год пашет без проблем. Сделали по индивидуальным размерам. Качество сборки на высоте. Буду заказывать ещё."</p>
-                        <div class="review-date">📍 Казань | 15 августа 2026</div>
-                    </div>
-
-                    <div class="review-card">
-                        <div class="review-header">
-                            <img src="https://i.pravatar.cc/100?img=6" alt="Аватар" class="review-avatar">
-                            <div>
-                                <div class="review-name">Николай Т.</div>
-                                <div class="review-stars">⭐⭐⭐⭐⭐</div>
-                            </div>
-                        </div>
-                        <p class="review-text">"Ребята делают качественный продукт. Видно, что с душой подходят к делу. Кораблик не тонет, не переворачивается, уверенно держится на волне. Супер!"</p>
-                        <div class="review-date">📍 Волгоград | 1 сентября 2026</div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- ===== БЛОК 5: СЕРТИФИКАТЫ И ДОКУМЕНТЫ ===== -->
-            <section class="certificates-block">
-                <h2>📜 Сертификаты и документы</h2>
-                <div class="cert-grid">
-                    <div class="cert-item" onclick="openCertModal(this)">
-                        <img src="https://via.placeholder.com/300x400/2c3e50/ffffff?text=Сертификат+1" alt="Сертификат 1">
-                        <div class="cert-overlay">🔍 Увеличить</div>
-                    </div>
-                    <div class="cert-item" onclick="openCertModal(this)">
-                        <img src="https://via.placeholder.com/300x400/34495e/ffffff?text=Сертификат+2" alt="Сертификат 2">
-                        <div class="cert-overlay">🔍 Увеличить</div>
-                    </div>
-                    <div class="cert-item" onclick="openCertModal(this)">
-                        <img src="https://via.placeholder.com/300x400/2c3e50/ffffff?text=Сертификат+3" alt="Сертификат 3">
-                        <div class="cert-overlay">🔍 Увеличить</div>
-                    </div>
-                    <div class="cert-item" onclick="openCertModal(this)">
-                        <img src="https://via.placeholder.com/300x400/34495e/ffffff?text=Сертификат+4" alt="Сертификат 4">
-                        <div class="cert-overlay">🔍 Увеличить</div>
-                    </div>
-                    <div class="cert-item" onclick="openCertModal(this)">
-                        <img src="https://via.placeholder.com/300x400/2c3e50/ffffff?text=Сертификат+5" alt="Сертификат 5">
-                        <div class="cert-overlay">🔍 Увеличить</div>
-                    </div>
-                    <div class="cert-item" onclick="openCertModal(this)">
-                        <img src="https://via.placeholder.com/300x400/34495e/ffffff?text=Сертификат+6" alt="Сертификат 6">
-                        <div class="cert-overlay">🔍 Увеличить</div>
-                    </div>
-                </div>
-
-                <!-- Модальное окно для увеличения фото -->
-                <div id="certModal" class="cert-modal">
-                    <span class="cert-modal-close" onclick="closeCertModal()">✕</span>
-                    <img id="certModalImg" src="">
-                </div>
-            </section>
-        </section>
-
-        <!-- ===== ВКЛАДКА 2: ЗАКАЗ И КОМПЛЕКТАЦИЯ ===== -->
-        <section id="tab-order" class="tab-content">
-            <h2>🛠 Соберите свою комплектацию</h2>
-            <p class="order-subtitle">Выберите опции галочками — цена обновится автоматически</p>
-
-            <div class="configurator">
-                <!-- ОПЦИЯ 1 -->
-                <div class="option-item">
-                    <label>
-                        <input type="checkbox" class="option-check" data-price="1500" onchange="updateTotal()">
-                        <span class="option-name">Корпус усиленный (стеклопластик)</span>
-                        <span class="option-price">+1 500 ₽</span>
-                    </label>
-                </div>
-
-                <!-- ОПЦИЯ 2 -->
-                <div class="option-item">
-                    <label>
-                        <input type="checkbox" class="option-check" data-price="2000" onchange="updateTotal()">
-                        <span class="option-name">Электромотор 12V 30A</span>
-                        <span class="option-price">+2 000 ₽</span>
-                    </label>
-                </div>
-
-                <!-- ОПЦИЯ 3 -->
-                <div class="option-item">
-                    <label>
-                        <input type="checkbox" class="option-check" data-price="1200" onchange="updateTotal()">
-                        <span class="option-name">Аккумулятор 40Ач (гелевый)</span>
-                        <span class="option-price">+1 200 ₽</span>
-                    </label>
-                </div>
-
-                <!-- ОПЦИЯ 4 -->
-                <div class="option-item">
-                    <label>
-                        <input type="checkbox" class="option-check" data-price="2500" onchange="updateTotal()">
-                        <span class="option-name">Пульт управления с экраном</span>
-                        <span class="option-price">+2 500 ₽</span>
-                    </label>
-                </div>
-
-                <!-- ОПЦИЯ 5 -->
-                <div class="option-item">
-                    <label>
-                        <input type="checkbox" class="option-check" data-price="800" onchange="updateTotal()">
-                        <span class="option-name">Кормушка с бункером 2л</span>
-                        <span class="option-price">+800 ₽</span>
-                    </label>
-                </div>
-
-                <!-- ОПЦИЯ 6 -->
-                <div class="option-item">
-                    <label>
-                        <input type="checkbox" class="option-check" data-price="3500" onchange="updateTotal()">
-                        <span class="option-name">Автопилот по GPS</span>
-                        <span class="option-price">+3 500 ₽</span>
-                    </label>
-                </div>
-
-                <!-- ОПЦИЯ 7 -->
-                <div class="option-item">
-                    <label>
-                        <input type="checkbox" class="option-check" data-price="600" onchange="updateTotal()">
-                        <span class="option-name">Подсветка (LED, 4 цвета)</span>
-                        <span class="option-price">+600 ₽</span>
-                    </label>
-                </div>
-
-                <!-- ОПЦИЯ 8 -->
-                <div class="option-item">
-                    <label>
-                        <input type="checkbox" class="option-check" data-price="400" onchange="updateTotal()">
-                        <span class="option-name">Чехол для транспортировки</span>
-                        <span class="option-price">+400 ₽</span>
-                    </label>
-                </div>
-
-                <!-- ИТОГОВАЯ СУММА -->
-                <div class="total-block">
-                    <span class="total-label">💰 ИТОГОВАЯ ЦЕНА:</span>
-                    <span class="total-price" id="totalPrice">0 ₽</span>
-                </div>
-
-                <button class="submit-order-btn" onclick="submitOrder()">📩 Отправить заявку</button>
+<!-- ============ ПОПУЛЯРНЫЕ РЕШЕНИЯ ============ -->
+<section class="section">
+    <div class="container">
+        <h2 class="section-title">Популярные <span>решения</span></h2>
+        <div class="grid-3">
+            <div class="card">
+                <div class="card-icon">🤖</div>
+                <h3>Автопилот V10</h3>
+                <p>Полная автоматизация маршрута, удержание точки, возврат при потере сигнала.</p>
             </div>
-        </section>
-
-        <!-- ===== ВКЛАДКА 3: КОНТАКТЫ ===== -->
-        <section id="tab-contacts" class="tab-content">
-            <h2>📞 Контакты</h2>
-            
-            <div class="contacts-grid">
-                <div class="contact-info">
-                    <div class="contact-item">
-                        <span class="contact-icon">📱</span>
-                        <div>
-                            <strong>Телефон (звонки, WhatsApp):</strong>
-                            <a href="tel:+79158706979">+7 (915) 870-69-79</a>
-                        </div>
-                    </div>
-
-                    <div class="contact-item">
-                        <span class="contact-icon">✈️</span>
-                        <div>
-                            <strong>Telegram:</strong>
-                            <a href="https://t.me/+79997706979">@+79997706979</a>
-                        </div>
-                    </div>
-
-                    <div class="contact-item">
-                        <span class="contact-icon">📧</span>
-                        <div>
-                            <strong>Email:</strong>
-                            <a href="mailto:ivan.gelexi.tmb@gmail.com">ivan.gelexi.tmb@gmail.com</a>
-                        </div>
-                    </div>
-
-                    <div class="contact-item">
-                        <span class="contact-icon">📍</span>
-                        <div>
-                            <strong>Адрес производства:</strong>
-                            <p>Тамбовская область, г. Тамбов</p>
-                            <a href="https://yandex.ru/maps/213/tambov/" target="_blank" class="map-link">
-                                🗺 Открыть на Яндекс.Картах
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- КАРТА -->
-                <div class="map-container">
-                    <iframe src="https://yandex.ru/map-widget/v1/?ll=41.4358%2C52.7313&z=12" 
-                            width="100%" 
-                            height="400" 
-                            frameborder="0"
-                            allowfullscreen>
-                    </iframe>
-                </div>
+            <div class="card">
+                <div class="card-icon">⚓</div>
+                <h3>Электроякорь</h3>
+                <p>Кораблик остаётся на точке даже при порывах ветра и течении.</p>
             </div>
-        </section>
-
-    </main>
-
-    <!-- ============ ПОДВАЛ С СЧЁТЧИКАМИ ============ -->
-    <footer>
-        <div class="footer-content">
-            <div class="footer-col">
-                <h4>🚤 КорабликPRO</h4>
-                <p>Производство прикормочных корабликов</p>
-                <p style="margin-top: 10px; font-size: 14px;">Ручная сборка в Тамбове</p>
+            <div class="card">
+                <div class="card-icon">📡</div>
+                <h3>Усилитель сигнала</h3>
+                <p>Связь с эхолотом до 400 метров без потери сигнала.</p>
             </div>
-            
-            <div class="footer-col">
-                <h4>📊 Статистика сайта</h4>
-                <div class="stat-item">
-                    <span class="stat-label">👁 Всего посещений:</span>
-                    <span class="stat-value" id="totalVisits">0</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-label">📅 За этот месяц:</span>
-                    <span class="stat-value" id="monthVisits">0</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-label">🕐 Онлайн сейчас:</span>
-                    <span class="stat-value" id="onlineNow">0</span>
-                </div>
+            <div class="card">
+                <div class="card-icon">🎯</div>
+                <h3>Круиз NON‑STOP</h3>
+                <p>Ровный ход без «змейки» даже на волнах.</p>
             </div>
+            <div class="card">
+                <div class="card-icon">🗣️</div>
+                <h3>Голосовой ассистент</h3>
+                <p>Оповещения через пульт на русском языке.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">🔄</div>
+                <h3>Центральный сброс</h3>
+                <p>Снасть сбрасывается на 2–3 метра от места прикормки для крупной рыбы.</p>
+            </div>
+        </div>
+    </div>
+</section>
 
-            <div class="footer-col">
-                <h4>📞 Быстрая связь</h4>
-                <a href="tel:+79158706979" class="footer-phone">+7 (915) 870-69-79</a>
-                <a href="https://t.me/+79997706979" class="footer-telegram">💬 Telegram</a>
+<!-- ============ ЦЕНЫ ============ -->
+<section class="section price-section">
+    <div class="container">
+        <h2 class="section-title">Модели и <span>цены</span></h2>
+        <div class="prices-grid">
+            <div class="price-card">
+                <h4>SpeeD V4</h4>
+                <div class="price">49 900 <span>₽</span></div>
+                <ul>
+                    <li>Корпус ABS, 3 мм</li>
+                    <li>Бункер 1.0 л</li>
+                    <li>Дальность до 600 м</li>
+                    <li>Автопилот (опция)</li>
+                </ul>
+                <a href="#form" class="btn">Заказать</a>
+            </div>
+            <div class="price-card">
+                <h4>SpeeD V5</h4>
+                <div class="price">59 900 <span>₽</span></div>
+                <ul>
+                    <li>Усиленный корпус</li>
+                    <li>Бункер 1.2 л</li>
+                    <li>Дальность до 800 м</li>
+                    <li>Электроякорь (опция)</li>
+                </ul>
+                <a href="#form" class="btn">Заказать</a>
+            </div>
+            <div class="price-card">
+                <h4>Mono</h4>
+                <div class="price">44 900 <span>₽</span></div>
+                <ul>
+                    <li>Лёгкий корпус</li>
+                    <li>Бункер 0.9 л</li>
+                    <li>Дальность до 500 м</li>
+                    <li>Идеален для начинающих</li>
+                </ul>
+                <a href="#form" class="btn">Заказать</a>
+            </div>
+            <div class="price-card">
+                <h4>Solo</h4>
+                <div class="price">39 900 <span>₽</span></div>
+                <ul>
+                    <li>Компактный размер</li>
+                    <li>Бункер 0.8 л</li>
+                    <li>Дальность до 400 м</li>
+                    <li>Бюджетное решение</li>
+                </ul>
+                <a href="#form" class="btn">Заказать</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============ ОТЗЫВЫ ============ -->
+<section class="section">
+    <div class="container">
+        <h2 class="section-title">Что говорят <span>рыбаки</span></h2>
+        <div class="reviews-grid">
+            <div class="review-card">
+                <div class="stars">★★★★★</div>
+                <p class="text">«Отличный кораблик! Брал SpeeD V5 с автопилотом — доволен как слон. Удержание точки идеальное.»</p>
+                <div class="name">Алексей, Московская обл.</div>
+            </div>
+            <div class="review-card">
+                <div class="stars">★★★★★</div>
+                <p class="text">«Пользуюсь Mono уже второй сезон. Надёжный, лёгкий, прикорм доставляет точно. Рекомендую.»</p>
+                <div class="name">Сергей, Ростов-на-Дону</div>
+            </div>
+            <div class="review-card">
+                <div class="stars">★★★★★</div>
+                <p class="text">«Купил Solo для начала. Очень удобный пульт, всё интуитивно. Теперь думаю взять V5.»</p>
+                <div class="name">Иван, Краснодар</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============ ВОПРОСЫ ============ -->
+<section class="section faq-section">
+    <div class="container">
+        <h2 class="section-title">Часто задаваемые <span>вопросы</span></h2>
+        <div class="faq-grid">
+            <div class="faq-item">
+                <h4>Как происходит заказ и доставка?</h4>
+                <p>Высылаем договор, вы вносите аванс 5000₽, запускаем производство (5–20 дней), тестируем и отправляем СДЭК или Почтой России.</p>
+            </div>
+            <div class="faq-item">
+                <h4>Можно ли оплатить при получении?</h4>
+                <p>Да, мы работаем с наложенным платежом. Все подробности уточняйте у менеджера.</p>
+            </div>
+            <div class="faq-item">
+                <h4>Какой срок доставки?</h4>
+                <p>5–6 рабочих дней до центральных регионов, до 14 дней — для дальних (Владивосток и др.).</p>
+            </div>
+            <div class="faq-item">
+                <h4>Есть ли гарантия?</h4>
+                <p>12 месяцев гарантии и пожизненная техническая поддержка. Помогаем даже после гарантии.</p>
+            </div>
+            <div class="faq-item">
+                <h4>Можно ли установить эхолот?</h4>
+                <p>Да, все модели имеют посадочное место для эхолота Deeper, LUCKY, Fishfinder и нашего АкваРОБОТ-kogger.</p>
+            </div>
+            <div class="faq-item">
+                <h4>Какие опции доступны?</h4>
+                <p>Более 20 опций: автопилот, эхолот, камера, разбрасыватель, защита винта, голосовой ассистент и другие.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============ ПОДВАЛ ============ -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div>
+                <h4>Бекас</h4>
+                <p class="footer-desc">Прикормочные кораблики российского производства</p>
+                <a href="tel:+79158706979">+7 (915) 870-69-79</a><br>
+                <a href="mailto:ivan.gelexi.tmb@gmail.com">ivan.gelexi.tmb@gmail.com</a>
+            </div>
+            <div>
+                <h4>Модели</h4>
+                <a href="#form">SpeeD V4</a>
+                <a href="#form">SpeeD V5</a>
+                <a href="#form">Mono</a>
+                <a href="#form">Solo</a>
+            </div>
+            <div>
+                <h4>Покупателям</h4>
+                <a href="#form">Доставка</a>
+                <a href="#form">Гарантия</a>
+                <a href="#form">Опции</a>
+                <a href="#form">Отзывы</a>
+            </div>
+            <div>
+                <h4>Контакты</h4>
+                <a href="https://t.me/+79997706979" target="_blank">Telegram</a>
+                <a href="https://wa.me/79158706979" target="_blank">WhatsApp</a>
+                <a href="https://yandex.ru/maps/213/tambov/" target="_blank">На карте</a>
+                <p class="footer-addr">Производство: Краснодарский край, ст. Ленинградская</p>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>© 2026 КорабликPRO | Сделано с ❤️ для настоящих рыбаков</p>
+            <p>© 2016–2025 Бекас. Все права защищены.</p>
+            <p class="footer-policy">Заполняя формы на сайте, вы соглашаетесь с политикой обработки данных.</p>
         </div>
-    </footer>
+    </div>
+</footer>
 
-    <script src="script.js"></script>
+<!-- ============ ПЛАВАЮЩАЯ КНОПКА ============ -->
+<div class="floating-btn">
+    <a href="tel:+79158706979">
+        <span>📞</span> Связаться
+    </a>
+</div>
+
+<script src="script.js"></script>
 </body>
 </html>

@@ -535,6 +535,25 @@
     box-shadow: 0 0 25px rgba(84, 144, 255, 0.6);
 }
 
+.header-bg-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* строго ПОД всем содержимым шапки */
+
+    /* укажи путь к своей картинке */
+    background-image: url('images/head.jpg');
+    background-size: cover;      /* заполняет без искажений */
+    background-position: center;/* центрирует */
+    background-repeat: no-repeat;
+
+    /* затемнение, чтобы текст читался */
+    opacity: 0.8;
+}
+
+
 /* Адаптив модального окна */
 @media (max-width: 768px) {
     .modal-body {
@@ -605,6 +624,11 @@
 
     <!-- ===== ШАПКА ===== -->
     <header class="header">
+
+         <!-- Новая строка: фоновое фото шапки -->
+    <div class="header-bg-image"></div>
+
+    
     <!-- Левая часть: логотип -->
     <div class="header__left">
         <img src="images/bek.jpg" alt="Бекас" class="header__logo" />

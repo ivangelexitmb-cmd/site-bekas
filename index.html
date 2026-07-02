@@ -3,234 +3,273 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Прикормочные кораблики CorveD — производство РФ</title>
-    <link rel="stylesheet" href="style.css" />
+    <title>Бекас — прикормочные кораблики</title>
+    <style>
+        /* ===== СБРОС ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f4f7fa;
+            padding-top: 50px;
+        }
+
+        /* ===== ШАПКА ===== */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 50px;
+            background: #000000;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
+            z-index: 1000;
+            border-bottom: 1px solid #222;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+        }
+
+        /* --- ЛЕВЫЙ БЛОК: логотип --- */
+        .header__left {
+            display: flex;
+            align-items: center;
+            flex-shrink: 0;
+        }
+
+        .header__logo {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background: #d4a84b;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 16px;
+            color: #000;
+            box-shadow: 0 0 0 2px #333, 0 0 0 4px #d4a84b;
+            transition: 0.2s;
+            user-select: none;
+            flex-shrink: 0;
+        }
+
+        /* --- ЦЕНТР: мерцающая кнопка --- */
+        .header__center {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0 10px;
+        }
+
+        .header__order-btn {
+            background: #d4a84b;
+            color: #000;
+            font-weight: 700;
+            font-size: 14px;
+            padding: 6px 28px;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            letter-spacing: 0.5px;
+            transition: 0.2s;
+            text-transform: uppercase;
+            box-shadow: 0 0 10px rgba(212, 168, 75, 0.3);
+            animation: pulse-glow 1.8s ease-in-out infinite;
+            white-space: nowrap;
+        }
+
+        .header__order-btn:hover {
+            background: #c49a3e;
+            transform: scale(1.02);
+            box-shadow: 0 0 20px rgba(212, 168, 75, 0.6);
+        }
+
+        @keyframes pulse-glow {
+            0%   { box-shadow: 0 0 5px rgba(212, 168, 75, 0.2); }
+            50%  { box-shadow: 0 0 20px rgba(212, 168, 75, 0.8), 0 0 40px rgba(212, 168, 75, 0.2); }
+            100% { box-shadow: 0 0 5px rgba(212, 168, 75, 0.2); }
+        }
+
+        /* --- ПРАВЫЙ БЛОК: телефон + иконки --- */
+        .header__right {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-shrink: 0;
+        }
+
+        .header__phone {
+            color: #fff;
+            font-size: 14px;
+            font-weight: 600;
+            text-decoration: none;
+            letter-spacing: 0.3px;
+            white-space: nowrap;
+        }
+
+        .header__phone:hover {
+            color: #d4a84b;
+        }
+
+        .header__socials {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .header__social-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+            background: #1a1a1a;
+            color: #aaa;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 700;
+            transition: 0.25s;
+            border: 1px solid #333;
+        }
+
+        .header__social-link:hover {
+            background: #d4a84b;
+            color: #000;
+            border-color: #d4a84b;
+            transform: scale(1.1);
+        }
+
+        /* ===== КОНТЕНТ (демо) ===== */
+        .content {
+            max-width: 1000px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+
+        .content h1 {
+            font-size: 2.2rem;
+            color: #0a2a44;
+            margin-bottom: 20px;
+        }
+
+        .content p {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: #222;
+            margin-bottom: 15px;
+        }
+
+        .content .placeholder {
+            background: #e9ecf0;
+            border-radius: 12px;
+            padding: 60px 20px;
+            text-align: center;
+            color: #555;
+            font-size: 1.2rem;
+            margin-top: 30px;
+        }
+
+        /* ===== АДАПТИВ ===== */
+        @media (max-width: 700px) {
+            .header {
+                padding: 0 12px;
+            }
+            .header__logo {
+                width: 32px;
+                height: 32px;
+                font-size: 12px;
+            }
+            .header__order-btn {
+                font-size: 11px;
+                padding: 4px 16px;
+            }
+            .header__phone {
+                font-size: 12px;
+            }
+            .header__social-link {
+                width: 22px;
+                height: 22px;
+                font-size: 10px;
+            }
+            .header__right {
+                gap: 6px;
+            }
+        }
+
+        @media (max-width: 550px) {
+            .header__phone {
+                display: none;
+            }
+            .header__social-link {
+                width: 26px;
+                height: 26px;
+                font-size: 12px;
+            }
+        }
+
+        @media (max-width: 420px) {
+            .header__order-btn {
+                font-size: 9px;
+                padding: 3px 10px;
+            }
+            .header__logo {
+                width: 26px;
+                height: 26px;
+                font-size: 10px;
+            }
+            .header__social-link {
+                width: 22px;
+                height: 22px;
+                font-size: 10px;
+            }
+        }
+    </style>
 </head>
 <body>
 
-    <!-- ШАПКА -->
+    <!-- ===== ШАПКА ===== -->
     <header class="header">
-        <div class="container header__inner">
-            <div class="logo">
-                <img src="logo.png" alt="CorveD" />
-                <span class="logo__text">CorveD</span>
+        <!-- Логотип слева -->
+        <div class="header__left">
+            <div class="header__logo" title="Бекас">Б</div>
+        </div>
+
+        <!-- Мерцающая кнопка по центру -->
+        <div class="header__center">
+            <button class="header__order-btn" onclick="alert('📞 Свяжитесь с нами для заказа!')">Заказать</button>
+        </div>
+
+        <!-- Телефон + соцсети справа -->
+        <div class="header__right">
+            <a href="tel:+79158706979" class="header__phone">+7 915 870 69 79</a>
+            <div class="header__socials">
+                <a href="#" class="header__social-link" title="YouTube">▶</a>
+                <a href="#" class="header__social-link" title="Telegram">✈</a>
+                <a href="#" class="header__social-link" title="WhatsApp">💬</a>
+                <span style="color:#888; font-size:12px; font-weight:500; margin-left:2px;">макс</span>
             </div>
-            <nav class="nav">
-                <a href="#models">Модели</a>
-                <a href="#options">Опции</a>
-                <a href="#delivery">Доставка</a>
-                <a href="#contacts">Контакты</a>
-            </nav>
-            <a href="#order" class="btn btn--primary">Заказать</a>
         </div>
     </header>
 
-    <!-- ГЛАВНЫЙ ЭКРАН -->
-    <section class="hero">
-        <div class="container hero__inner">
-            <h1 class="hero__title">Прикормочные кораблики для рыбалки CorveD</h1>
-            <p class="hero__subtitle">Российский производитель. Гарантия 1 год. Доставка по РФ.</p>
-            <a href="#quiz" class="btn btn--large">Подобрать модель за 1 минуту</a>
+    <!-- ===== ОСНОВНОЙ КОНТЕНТ ===== -->
+    <main class="content">
+        <h1>Прикормочные кораблики «Бекас»</h1>
+        <p>Российский производитель. Гарантия 1 год. Доставка по РФ.</p>
+        <p>Модели: SpeeD v4, Mono, Solo. Более 26 модификаций.</p>
+
+        <div class="placeholder">
+            Здесь будет основной контент сайта<br />
+            (слайдер, опции, формы и т.д.)
         </div>
-    </section>
-
-    <!-- ПРЕИМУЩЕСТВА -->
-    <section class="advantages">
-        <div class="container">
-            <h2 class="section-title">Почему мы?</h2>
-            <div class="advantages__grid">
-                <div class="advantage-item">
-                    <h3>Собственное производство</h3>
-                    <p>Изготавливаем в Краснодарском крае. Полный контроль качества.</p>
-                </div>
-                <div class="advantage-item">
-                    <h3>12 месяцев гарантии</h3>
-                    <p>Техническая поддержка и ремонт даже после окончания гарантии.</p>
-                </div>
-                <div class="advantage-item">
-                    <h3>Более 2000 клиентов</h3>
-                    <p>Кораблики CorveD уже нашли своих владельцев по всей России.</p>
-                </div>
-                <div class="advantage-item">
-                    <h3>26 модификаций</h3>
-                    <p>Под любые задачи и условия рыбалки.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- МОДЕЛИ (Speed V4 / V5) -->
-    <section class="models" id="models">
-        <div class="container">
-            <h2 class="section-title">Кораблик для рыбалки CorveD — ваш надежный помощник</h2>
-            <p class="section-subtitle">Спроектированы с умом, собраны со знанием дела и с вниманием к каждой детали</p>
-            
-            <div class="model-card">
-                <h3>CorveD SpeeD v5</h3>
-                <div class="model-features">
-                    <ul>
-                        <li>Килевое дно — устойчивость при волне до 1 метра</li>
-                        <li>ABS пластик 3 мм, ударопрочный</li>
-                        <li>Объёмный бункер 1–1.2 л</li>
-                        <li>Усиленная фара с противотуманным режимом</li>
-                        <li>4 ярких габарита (2 — индикаторы сброса)</li>
-                        <li>Мощные сервоприводы до 20 кг</li>
-                        <li>Полная герметизация морским герметиком</li>
-                    </ul>
-                    <img src="speed-v5.png" alt="Speed V5" />
-                </div>
-            </div>
-
-            <div class="model-card">
-                <h3>CorveD SpeeD v4</h3>
-                <div class="model-features">
-                    <ul>
-                        <li>Все преимущества V5</li>
-                        <li>Возможность установки центрального сброса</li>
-                        <li>Посадочное место для эхолота</li>
-                        <li>Место для установки глубиномера</li>
-                        <li>Стальной винт, руль и защита винта</li>
-                        <li>Возможность установки курсовой камеры</li>
-                    </ul>
-                    <img src="speed-v4.png" alt="Speed V4" />
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ОПЦИИ (список) -->
-    <section class="options" id="options">
-        <div class="container">
-            <h2 class="section-title">Популярные решения для корабликов</h2>
-            <div class="options__grid">
-                <div class="option-item">Автопилот V10</div>
-                <div class="option-item">Электроякорь</div>
-                <div class="option-item">Круиз NON-STOP</div>
-                <div class="option-item">Отложенный старт</div>
-                <div class="option-item">Усилитель сигнала для Deeper</div>
-                <div class="option-item">Эхолот Акваробот-kogger</div>
-                <div class="option-item">Универсальное крепление для эхолотов</div>
-                <div class="option-item">Защитный бортик</div>
-                <div class="option-item">Защитная крышка на пульт Flysky</div>
-                <div class="option-item">Вибро-шумоизоляция</div>
-                <div class="option-item">Багор</div>
-                <div class="option-item">868 частота (до 1 км)</div>
-                <div class="option-item">Пульт с Li-ion аккумулятором</div>
-                <div class="option-item">Электронный маркер</div>
-                <div class="option-item">Модуль автовозврата</div>
-                <div class="option-item">Глубиномер</div>
-                <div class="option-item">Дальномер</div>
-                <div class="option-item">Пульт на русском языке</div>
-                <div class="option-item">Голосовой ассистент</div>
-                <div class="option-item">Регулируемая яркость</div>
-                <div class="option-item">Центральный сброс</div>
-                <div class="option-item">Электронная защита двигателя</div>
-                <div class="option-item">Защита винта из нержавеющей стали</div>
-                <div class="option-item">Защита ручки</div>
-                <div class="option-item">Разбрасыватель прикормки</div>
-                <div class="option-item">Курсовая камера</div>
-            </div>
-        </div>
-    </section>
-
-    <!-- УПРАВЛЕНИЕ -->
-    <section class="control">
-        <div class="container">
-            <h2 class="section-title">Контролируйте процесс рыбалки двумя пальцами</h2>
-            <ul class="control__list">
-                <li>Удобный 14-канальный пульт</li>
-                <li>Автовозврат с сохранением домашней точки</li>
-                <li>Дальномер от нулевой точки</li>
-                <li>Задний ход для труднодоступных мест</li>
-                <li>Русский язык на пульте</li>
-                <li>Голосовое оповещение</li>
-            </ul>
-        </div>
-    </section>
-
-    <!-- ДОСТАВКА И ОПЛАТА -->
-    <section class="delivery" id="delivery">
-        <div class="container">
-            <h2 class="section-title">Доставка по всей России</h2>
-            <div class="delivery__steps">
-                <div class="step">
-                    <span class="step__num">1</span>
-                    <h4>Высылаем договор</h4>
-                    <p>С печатью и подписью. Работаем с физ. и юр. лицами.</p>
-                </div>
-                <div class="step">
-                    <span class="step__num">2</span>
-                    <h4>Получаем оплату</h4>
-                    <p>Аванс 5 000 руб., оплата при получении, кредит, рассрочка, USDT.</p>
-                </div>
-                <div class="step">
-                    <span class="step__num">3</span>
-                    <h4>Проверяем</h4>
-                    <p>Каждый кораблик тестируем на водоёме и настраиваем.</p>
-                </div>
-                <div class="step">
-                    <span class="step__num">4</span>
-                    <h4>Отправляем</h4>
-                    <p>СДЭК, Почта России, Boxberry. Страхуем груз.</p>
-                </div>
-            </div>
-            <p class="delivery__info">Сроки: 5–6 дней (Центральная Россия), до 14 дней (Дальний Восток).</p>
-        </div>
-    </section>
-
-    <!-- ДЕМОНСТРАЦИЯ -->
-    <section class="demo">
-        <div class="container demo__inner">
-            <h2>Посмотрите на кораблик и протестируйте вживую</h2>
-            <p>Запишитесь на демонстрацию по WhatsApp. Всё покажем и расскажем.</p>
-            <a href="#demo-form" class="btn btn--large">Бесплатная демонстрация</a>
-        </div>
-    </section>
-
-    <!-- ПАРТНЁРЫ -->
-    <section class="partners">
-        <div class="container">
-            <h2 class="section-title">Наши партнёры</h2>
-            <p>Используем только оригинальные комплектующие мировых брендов</p>
-            <div class="partners__logos">
-                <span>Бренд 1</span>
-                <span>Бренд 2</span>
-                <span>Бренд 3</span>
-                <span>Бренд 4</span>
-            </div>
-        </div>
-    </section>
-
-    <!-- ФОРМА ЗАКАЗА -->
-    <section class="order" id="order">
-        <div class="container order__inner">
-            <h2 class="section-title">Оформить заказ</h2>
-            <form class="order-form">
-                <input type="text" placeholder="Ваше имя" required />
-                <input type="tel" placeholder="+7 (___) ___-__-__" required />
-                <button type="submit" class="btn btn--primary">Отправить заявку</button>
-                <p class="form__note">Нажимая на кнопку, вы даёте согласие на обработку персональных данных</p>
-            </form>
-        </div>
-    </section>
-
-    <!-- ПОДВАЛ -->
-    <footer class="footer">
-        <div class="container footer__inner">
-            <div class="footer__info">
-                <p><strong>CorveD</strong> © 2016–2025</p>
-                <p>Производство: Краснодарский край, ст. Ленинградская</p>
-                <p>Режим работы: Пн–Пт с 9:00 до 18:00</p>
-            </div>
-            <div class="footer__links">
-                <a href="#">Условия обработки данных</a>
-                <a href="#">Политика cookies</a>
-            </div>
-        </div>
-    </footer>
-
-    <!-- КНОПКА СВЯЗИ (онлайн-чат) -->
-    <div class="chat-button">💬</div>
+    </main>
 
 </body>
 </html>

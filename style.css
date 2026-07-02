@@ -61,50 +61,34 @@ header {
 
 /* ===== СЛАЙДЕР С ФОТО (ПРОЗРАЧНЫЙ + РАЗМЫТИЕ) ===== */
 .photo-slider {
-    overflow: hidden;
-    background: rgba(15, 26, 36, 0.3); /* ПРОЗРАЧНЫЙ ФОН (30% непрозрачности) */
-    backdrop-filter: blur(10px); /* РАЗМЫТИЕ ФОНА (эффект стекла) */
-    -webkit-backdrop-filter: blur(10px); /* Для Safari */
-    border-bottom: 2px solid rgba(241, 196, 15, 0.3); /* Полупрозрачная граница */
     height: 150px;
-    transition: all 0.3s ease;
+    overflow: hidden;
+    background: #0f1a24;
+    transition: all 0.5s ease;
     position: sticky;
     top: 0;
     z-index: 999;
 }
 
-
-/* Когда слайдер скрыт при прокрутке */
 .photo-slider.hidden {
     height: 0;
-    border-bottom: none;
     opacity: 0;
-    pointer-events: none;
+    padding: 0;
 }
 
 .slider-track {
     display: flex;
     animation: slide 30s infinite linear;
-    width: 1000%; /* 10 фото по 10% */
+    width: 1000%;
     height: 100%;
 }
 
-/* Затемнение на фото (чтобы текст на них читался) */
 .slider-track img {
     width: 10%;
     height: 150px;
     object-fit: cover;
     flex-shrink: 0;
-    filter: brightness(0.9); /* Немного затемняем фото */
-    transition: filter 0.3s ease;
 }
-
-/* При наведении на фото — убираем затемнение */
-.slider-track img:hover {
-    filter: brightness(1);
-}
-
-
 
 @keyframes slide {
     0% { transform: translateX(0); }

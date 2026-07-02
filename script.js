@@ -66,35 +66,10 @@ function submitOrder() {
     // Формируем сообщение
     const message = `Здравствуйте! Хочу заказать кораблик со следующими опциями:\n\n${optionsList.join('\n')}\n\n💰 Итоговая цена: ${total.toLocaleString('ru-RU')} ₽\n\nМой номер: +7...`;
 
-    // Отправляем через Telegram (если настроен бот) или просто показываем
     alert(`✅ Заявка отправлена!\n\n${message}\n\nСкопируйте это сообщение и отправьте нам в Telegram или WhatsApp.`);
-
-    // Альтернатива: открыть WhatsApp с готовым сообщением
-    // const phone = '79158706979';
-    // const encodedMessage = encodeURIComponent(message);
-    // window.open(`https://wa.me/${phone}?text=${encodedMessage}`, '_blank');
 }
 
-// ===== 4. ПРИВЕТСТВИЕ ПРИ ЗАГРУЗКЕ =====
-window.onload = function() {
-    console.log('🚤 КорабликPRO загружен!');
-    
-    // Если на странице есть видео — автозапуск не делаем, ждём клика пользователя
-    // (браузеры блокируют автовоспроизведение)
-};
-
-// ===== 5. ДОПОЛНИТЕЛЬНО: ПАУЗА ДЛЯ СЛАЙДЕРА ПРИ НАВЕДЕНИИ =====
-// Позволяет остановить слайдер при наведении мыши
-const sliderTrack = document.getElementById('sliderTrack');
-if (sliderTrack) {
-    sliderTrack.addEventListener('mouseenter', function() {
-        this.style.animationPlayState = 'paused';
-    });
-    sliderTrack.addEventListener('mouseleave', function() {
-        this.style.animationPlayState = 'running';
-    });
-}
-// ===== 6. СЧЁТЧИКИ ПОСЕЩЕНИЙ =====
+// ===== 4. СЧЁТЧИКИ ПОСЕЩЕНИЙ =====
 function updateCounters() {
     // Получаем текущие данные из localStorage
     let total = parseInt(localStorage.getItem('siteTotalVisits')) || 0;
@@ -141,10 +116,7 @@ function updateCounters() {
     }
 }
 
-// Запускаем счётчики при загрузке
-document.addEventListener('DOMContentLoaded', updateCounters);
-
-// ===== 7. МОДАЛЬНОЕ ОКНО ДЛЯ СЕРТИФИКАТОВ =====
+// ===== 5. МОДАЛЬНОЕ ОКНО ДЛЯ СЕРТИФИКАТОВ =====
 function openCertModal(element) {
     const img = element.querySelector('img');
     const modal = document.getElementById('certModal');
@@ -153,7 +125,7 @@ function openCertModal(element) {
     if (modal && modalImg && img) {
         modalImg.src = img.src;
         modal.classList.add('open');
-        document.body.style.overflow = 'hidden'; // блокируем скролл страницы
+        document.body.style.overflow = 'hidden';
     }
 }
 
@@ -161,7 +133,7 @@ function closeCertModal() {
     const modal = document.getElementById('certModal');
     if (modal) {
         modal.classList.remove('open');
-        document.body.style.overflow = 'auto'; // восстанавливаем скролл
+        document.body.style.overflow = 'auto';
     }
 }
 
@@ -182,28 +154,28 @@ document.addEventListener('keydown', function(e) {
     }
 });
 
-// ===== 8. ОБНОВЛЕНИЕ СЧЁТЧИКА ОНЛАЙН (каждые 30 секунд) =====
-setInterval(function() {
-    const onlineEl = document.getElementById('onlineNow');
-    if (onlineEl) {
-        const online = Math.floor(Math.random() * 8) + 1;
-        onlineEl.textContent = online;
-    }
-}, 30000); // обновляем раз в 30 секунд
-
-// ===== 9. СКРЫТИЕ СЛАЙДЕРА ПРИ ПРОКРУТКЕ =====
-window.addEventListener('scroll', function() {
+// ===== 6. СКРЫТИЕ СЛАЙДЕРА ПРИ ПРОКРУТКЕ (ПЛАВНОЕ) =====
+(function() {
     const slider = document.querySelector('.photo-slider');
     if (!slider) return;
-    
-    if (window.scrollY > 100) {
-        slider.classList.add('hidden');
-    } else {
-        slider.classList.remove('hidden');
-    }
-});
 
-    // Используем requestAnimationFrame для плавности (оптимизация)
+    function handleScroll() {
+        const scrollY = window.scrollY;
+        
+        // Прозрачность от 1 до 0 при прокрутке от 0 до 150px
+        const opacity = Math.max(0, 1 - (scrollY / 150));
+        
+        // Применяем прозрачность
+        slider.style.opacity = opacity;
+        
+        // Скрываем полностью, когда прозрачность стала 0
+        if (opacity <= 0) {
+            slider.style.pointerEvents = 'none';
+        } else {
+            slider.style.pointerEvents = 'auto';
+        }
+    }
+
     let ticking = false;
     window.addEventListener('scroll', function() {
         if (!ticking) {
@@ -215,6 +187,20 @@ window.addEventListener('scroll', function() {
         }
     });
 
-    // Запускаем проверку при загрузке (на случай, если страница уже прокручена)
-    setTimeout(handleScroll, 100);
+    handleScroll();
 })();
+
+// ===== 7. ОБНОВЛЕНИЕ СЧЁТЧИКА ОНЛАЙН (каждые 30 секунд) =====
+setInterval(function() {
+    const onlineEl = document.getElementById('onlineNow');
+    if (onlineEl) {
+        const online = Math.floor(Math.random() * 8) + 1;
+        onlineEl.textContent = online;
+    }
+}, 30000);
+
+// ===== 8. ЗАПУСК ПРИ ЗАГРУЗКЕ =====
+document.addEventListener('DOMContentLoaded', function() {
+    updateCounters();
+    console.log('🚤 КорабликPRO загружен!');
+});
